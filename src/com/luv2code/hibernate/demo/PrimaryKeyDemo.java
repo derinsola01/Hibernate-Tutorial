@@ -19,7 +19,7 @@ public class PrimaryKeyDemo {
 			System.out.println("Creating 4 new Students");
 			Student tempStudent1 = new Student("Derin", "Gbadebo", "derin@noreply.com");
 			Student tempStudent2 = new Student("Bukunmi", "Oyedeji", "bukunmi@noreply.com");
-			Student tempStudent3 = new Student("Chiamaka", "Obianyor", "chiamak@noreply.com");
+			Student tempStudent3 = new Student("Chiamaka", "Obianyor", "chiamaka@noreply.com");
 			Student tempStudent4 = new Student("Femi", "Eluyemi", "femi@noreply.com");
 			
 			session.beginTransaction();
