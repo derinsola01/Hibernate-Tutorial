@@ -28,7 +28,18 @@ public class QueryStudentDemo {
 			
 			theStudents = session.createQuery("from Student stu where stu.lastName='Eluyemi'").getResultList();
 			
-			System.out.println("Print specific Student from dB\n");
+			System.out.println("\n\nPrint specific Student from dB\n");
+			displayStudents(theStudents);
+			
+			theStudents = session.createQuery("from Student stu where stu.lastName='Eluyemi'"
+					+ "OR stu.firstName='Chiamaka'").getResultList();
+			
+			System.out.println("\n\nPrint OR statement for Student from dB\n");
+			displayStudents(theStudents);
+			
+			theStudents = session.createQuery("from Student stu where stu.email like '%noreply.com'").getResultList();
+			
+			System.out.println("\n\nPrint Like statement for Student from dB\n");
 			displayStudents(theStudents);
 
 			session.getTransaction().commit();
