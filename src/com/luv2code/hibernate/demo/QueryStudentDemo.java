@@ -19,7 +19,15 @@ public class QueryStudentDemo {
 		Session session = factory.getCurrentSession();
 		
 		try {
+			int studentId = 1;
 			session.beginTransaction();
+			
+			Student myStudent = session.get(Student.class, studentId);
+			
+			System.out.println("got my student: " + myStudent);
+			
+			myStudent.setFirstName("Abisola");
+			System.out.println("Updated my student record to: " + myStudent);
 			
 			List<Student> theStudents = session.createQuery("from Student").getResultList();
 			
@@ -41,6 +49,15 @@ public class QueryStudentDemo {
 			
 			System.out.println("\n\nPrint Like statement for Student from dB\n");
 			displayStudents(theStudents);
+			
+			System.out.println("Update all records by changing the firstName");
+			session.createQuery("update Student set firstName='Aderinsola'").executeUpdate();
+			
+			System.out.println("Delete first record");
+			session.delete(myStudent);
+			
+			System.out.println("Delete second record");
+			session.createQuery("delete from Student where lastName='Orokin'").executeUpdate();
 
 			session.getTransaction().commit();
 
